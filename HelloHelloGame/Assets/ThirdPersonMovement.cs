@@ -13,6 +13,9 @@ public class ThirdPersonMovement : MonoBehaviour
     public FloatingJoystick rightjoystick;
     public Animator PlayerAnimator;
 
+    int isWalkingHash;
+    int isRunningHash;
+
     public float speed = 6f;
     public float turnSmoothTime = 0.1f;
     float turnSmoothVelocity;
@@ -24,7 +27,12 @@ public class ThirdPersonMovement : MonoBehaviour
 
     void Start()
     {
+        PlayerAnimator = GetComponent<Animator>();
+        leftjoystick = GetComponent<FixedJoystick>();
         CinemachineCore.GetInputAxis = GetAxisCustom;
+
+        isWalkingHash = Animator.StringToHash("iswalking");
+        isRunningHash = Animator.StringToHash("isRunning");
     }
 
     public float GetAxisCustom(string axisName)
@@ -43,6 +51,9 @@ public class ThirdPersonMovement : MonoBehaviour
 
     void Update()
     {
+        bool isWalking = PlayerAnimator.GetBool(isWalkingHash);
+        bool isRunning = PlayerAnimator.GetBool(isRunningHash);
+
         float horizontal;
         float vertical;
 
@@ -62,9 +73,23 @@ public class ThirdPersonMovement : MonoBehaviour
 
         Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
 
-        if (direction.magnitude >= 0.1f) 
+        if (direction.magnitude >= 0.1f && direction.magnitude < 0.5f) 
         {
-            PlayerAnimator.SetBool("iswalking", true);
+            PlayerAnimator.SetBool(isWalkingHash, true);
+            PlayerAnimator.SetBool(isRunningHash, false);
+
+            float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
+            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
+
+            transform.rotation = Quaternion.Euler(0f, targetAngle, 0f);
+
+            Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
+            controller.Move(moveDir.normalized * speed * Time.deltaTime);
+        }
+        else if(direction.magnitude >= 0.5f)
+        {
+            PlayerAnimator.SetBool(isRunningHash, true);
+            PlayerAnimator.SetBool(isWalkingHash, false);
 
             float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
@@ -76,7 +101,8 @@ public class ThirdPersonMovement : MonoBehaviour
         }
         else if(direction.magnitude == 0f) 
         {
-            PlayerAnimator.SetBool("iswalking", false);
+            PlayerAnimator.SetBool(isWalkingHash, false);
+            PlayerAnimator.SetBool(isRunningHash, false);
         }
 
     }
