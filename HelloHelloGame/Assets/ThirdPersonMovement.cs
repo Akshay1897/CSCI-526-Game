@@ -15,6 +15,7 @@ public class ThirdPersonMovement : MonoBehaviour
 
     int isWalkingHash;
     int isRunningHash;
+    int isJumpingHash;
 
     public float speed = 6f;
     public float turnSmoothTime = 0.1f;
@@ -33,6 +34,7 @@ public class ThirdPersonMovement : MonoBehaviour
 
         isWalkingHash = Animator.StringToHash("iswalking");
         isRunningHash = Animator.StringToHash("isRunning");
+        isJumpingHash = Animator.StringToHash("isJumping");
     }
 
     public float GetAxisCustom(string axisName)
@@ -53,6 +55,7 @@ public class ThirdPersonMovement : MonoBehaviour
     {
         bool isWalking = PlayerAnimator.GetBool(isWalkingHash);
         bool isRunning = PlayerAnimator.GetBool(isRunningHash);
+        bool isJumping = PlayerAnimator.GetBool(isJumpingHash);
 
         float horizontal;
         float vertical;
