@@ -57,6 +57,8 @@ public class ThirdPersonMovement : MonoBehaviour
         bool isRunning = PlayerAnimator.GetBool(isRunningHash);
         bool isJumping = PlayerAnimator.GetBool(isJumpingHash);
 
+        bool jumpButtonPressed = Input.GetKey("q");
+
         float horizontal;
         float vertical;
 
@@ -74,9 +76,15 @@ public class ThirdPersonMovement : MonoBehaviour
             vertical = Input.GetAxisRaw("Vertical");
         }
 
+        // If the Button Designated for Jump is Pressed & Player is not Jumping already
+        if (jumpButtonPressed)
+            PlayerAnimator.SetBool(isJumpingHash, true);
+        else
+            PlayerAnimator.SetBool(isJumpingHash, false);
+
         Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
 
-        if (direction.magnitude >= 0.1f && direction.magnitude < 0.5f) 
+        if (direction.magnitude >= 0.1f && direction.magnitude < 0.5f)  // Walking Mode
         {
             PlayerAnimator.SetBool(isWalkingHash, true);
             PlayerAnimator.SetBool(isRunningHash, false);
@@ -89,7 +97,7 @@ public class ThirdPersonMovement : MonoBehaviour
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
             controller.Move(moveDir.normalized * speed * Time.deltaTime);
         }
-        else if(direction.magnitude >= 0.5f)
+        else if(direction.magnitude >= 0.5f)    // Running Mode
         {
             PlayerAnimator.SetBool(isRunningHash, true);
             PlayerAnimator.SetBool(isWalkingHash, false);
@@ -102,7 +110,7 @@ public class ThirdPersonMovement : MonoBehaviour
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
             controller.Move(moveDir.normalized * speed * Time.deltaTime);
         }
-        else if(direction.magnitude == 0f) 
+        else if(direction.magnitude == 0f)  // IDLE Mode
         {
             PlayerAnimator.SetBool(isWalkingHash, false);
             PlayerAnimator.SetBool(isRunningHash, false);
