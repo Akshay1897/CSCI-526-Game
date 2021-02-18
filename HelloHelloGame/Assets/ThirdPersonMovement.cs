@@ -104,7 +104,7 @@ public class ThirdPersonMovement : MonoBehaviour
             PlayerAnimator.SetBool("isRunning", false);
         }
 
-        else if(magnitude >= 0.9f)
+        else if(magnitude >= 0.7f)
         {
             PlayerAnimator.SetBool("isWalking", true);
             PlayerAnimator.SetBool("isRunning", true);
@@ -124,7 +124,6 @@ public class ThirdPersonMovement : MonoBehaviour
 
     public void Jump()
     {
-
         jumpButtonPressed = true;
         Invoke("UnJump", 0.1f);
     }
