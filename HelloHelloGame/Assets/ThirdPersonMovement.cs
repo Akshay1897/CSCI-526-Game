@@ -13,6 +13,11 @@ public class ThirdPersonMovement : MonoBehaviour
     public FloatingJoystick rightjoystick;
     public Animator PlayerAnimator;
 
+    public GameObject ball;
+    public float ballDistance;
+    private bool holdingBall = true;
+    public float ballThrowingForce;
+
     public float speed = 6f;
     public float turnSmoothTime = 0.1f;
     float turnSmoothVelocity;
@@ -30,7 +35,8 @@ public class ThirdPersonMovement : MonoBehaviour
     {
         //PlayerAnimator = GetComponent<Animator>();
         //leftjoystick = GetComponent<FixedJoystick>();
-        CinemachineCore.GetInputAxis = GetAxisCustom;       
+        CinemachineCore.GetInputAxis = GetAxisCustom;
+        ball.GetComponent<Rigidbody>().useGravity = false;
     }
 
     public float GetAxisCustom(string axisName)
@@ -50,7 +56,6 @@ public class ThirdPersonMovement : MonoBehaviour
     void Update()
     {
 
-
         float horizontal;
         float vertical;
 
@@ -68,11 +73,8 @@ public class ThirdPersonMovement : MonoBehaviour
             vertical = Input.GetAxisRaw("Vertical");
         }
 
-        // If the Button Designated for Jump is Pressed & Player is not Jumping already
-
 
         direction = new Vector3(horizontal, 0f, vertical);
-
 
 
         if (direction.magnitude >= 0.1f)  // Walking Mode
@@ -93,6 +95,12 @@ public class ThirdPersonMovement : MonoBehaviour
         else
         { 
             PlayerAnimator.SetBool("isJumping", false);
+        }
+
+
+        if (Input.GetKeyDown("e"))
+        {
+            throwball();
         }
     }
 
@@ -131,5 +139,19 @@ public class ThirdPersonMovement : MonoBehaviour
     public void UnJump()
     {
         jumpButtonPressed = false;
+    }
+
+    void throwball()
+    {
+        if (holdingBall)
+        {
+            GameObject obj = Instantiate(ball, transform);
+
+            obj.transform.position = cam.transform.position + cam.transform.forward * ballDistance;
+           
+            //holdingBall = false;
+            obj.GetComponent<Rigidbody>().useGravity = true;
+            obj.GetComponent<Rigidbody>().AddForce(cam.transform.forward * ballThrowingForce); 
+        }
     }
 }
