@@ -5,7 +5,6 @@ using Cinemachine;
 
 public class ThirdPersonMovement : MonoBehaviour
 {
-    // Start is called before the first frame update
     public CharacterController controller;
     public Transform cam;
 
@@ -28,6 +27,9 @@ public class ThirdPersonMovement : MonoBehaviour
     bool jumpButtonPressed;
 
     public CinemachineFreeLook vCam;
+
+    bool lockMovement = false;
+
 
     Vector3 direction;
 
@@ -76,32 +78,29 @@ public class ThirdPersonMovement : MonoBehaviour
 
         direction = new Vector3(horizontal, 0f, vertical);
 
-
-        if (direction.magnitude >= 0.1f)  // Walking Mode
+        if (!lockMovement)
         {
-            float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
-            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
+            if (direction.magnitude >= 0.1f)  // Walking Mode
+            {
+                float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
+                float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
 
-            transform.rotation = Quaternion.Euler(0f, targetAngle, 0f);
+                transform.rotation = Quaternion.Euler(0f, targetAngle, 0f);
 
-            Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
-            controller.Move(moveDir.normalized * speed * direction.magnitude * Time.deltaTime);
+                Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
+                controller.Move(moveDir.normalized * speed * direction.magnitude * Time.deltaTime);
+            }
+
+            if (jumpButtonPressed)
+            {
+                PlayerAnimator.SetBool("isJumping", true);
+            }
+            else
+            {
+                PlayerAnimator.SetBool("isJumping", false);
+            }
         }
 
-        if (jumpButtonPressed)
-        {
-            PlayerAnimator.SetBool("isJumping", true);
-        }
-        else
-        { 
-            PlayerAnimator.SetBool("isJumping", false);
-        }
-
-
-        if (Input.GetKeyDown("e"))
-        {
-            throwball();
-        }
     }
 
     void setAnimation(float magnitude) 
@@ -141,7 +140,7 @@ public class ThirdPersonMovement : MonoBehaviour
         jumpButtonPressed = false;
     }
 
-    void throwball()
+    public void throwball()
     {
         if (holdingBall)
         {
@@ -154,4 +153,20 @@ public class ThirdPersonMovement : MonoBehaviour
             obj.GetComponent<Rigidbody>().AddForce(cam.transform.forward * ballThrowingForce); 
         }
     }
+
+    public void lockMovementInput()
+    {
+        lockMovement = true;
+    }
+
+    public void unlockMovementInput()
+    {
+        lockMovement = false;
+    }
+
+    public void lookMovementInput()
+    {
+
+    }
+
 }
