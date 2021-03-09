@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+using UnityEngine.UI;
 
 public class ThirdPersonMovement : MonoBehaviour
 {
@@ -30,6 +31,14 @@ public class ThirdPersonMovement : MonoBehaviour
 
     bool lockMovement = false;
 
+    float movementFactor;
+
+    public float timePeriodForce;
+    public float timeSinceStart;
+
+    public float currentForce;
+
+    public Slider BallThrowSliderRef;
 
     Vector3 direction;
 
@@ -39,6 +48,10 @@ public class ThirdPersonMovement : MonoBehaviour
         //leftjoystick = GetComponent<FixedJoystick>();
         CinemachineCore.GetInputAxis = GetAxisCustom;
         ball.GetComponent<Rigidbody>().useGravity = false;
+        controller = GetComponent<CharacterController>();
+        Debug.Log(controller);
+
+        timeSinceStart = (3 * timePeriodForce) / 4;
     }
 
     public float GetAxisCustom(string axisName)
@@ -88,7 +101,7 @@ public class ThirdPersonMovement : MonoBehaviour
                 transform.rotation = Quaternion.Euler(0f, targetAngle, 0f);
 
                 Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
-                controller.Move(moveDir.normalized * speed * direction.magnitude * Time.deltaTime);
+                controller.Move (moveDir.normalized * speed * direction.magnitude * Time.deltaTime);
             }
 
             if (jumpButtonPressed)
@@ -100,6 +113,8 @@ public class ThirdPersonMovement : MonoBehaviour
                 PlayerAnimator.SetBool("isJumping", false);
             }
         }
+
+        
 
     }
 
@@ -127,6 +142,11 @@ public class ThirdPersonMovement : MonoBehaviour
     private void FixedUpdate()
     {
         setAnimation(direction.magnitude);
+
+        if (lockMovement)
+        {
+            ThrowBallPower();
+        }
     }
 
     public void Jump()
@@ -150,7 +170,7 @@ public class ThirdPersonMovement : MonoBehaviour
            
             //holdingBall = false;
             obj.GetComponent<Rigidbody>().useGravity = true;
-            obj.GetComponent<Rigidbody>().AddForce(cam.transform.forward * ballThrowingForce); 
+            obj.GetComponent<Rigidbody>().AddForce(cam.transform.forward * currentForce); 
         }
     }
 
@@ -169,4 +189,12 @@ public class ThirdPersonMovement : MonoBehaviour
 
     }
 
+    public void ThrowBallPower()
+    {
+        currentForce = 2 * ballThrowingForce + ballThrowingForce * Mathf.Sin(Time.time/2);
+        //timeSinceStart += Time.deltaTime;
+        BallThrowSliderRef.value = currentForce;
+        Debug.Log(currentForce);
+
+    }
 }

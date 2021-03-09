@@ -17,6 +17,8 @@ public class Level2_Manager : MonoBehaviour
 
     public GameObject scoreRef;
 
+    public GameObject sliderRef;
+
     void Start()
     {
         
@@ -29,6 +31,7 @@ public class Level2_Manager : MonoBehaviour
 
     public void startLevel2()
     {
+        sliderRef.SetActive(true);
 
         playerModel.SetActive(false);
         thirdPersonScriptReference.lockMovementInput();
@@ -45,6 +48,7 @@ public class Level2_Manager : MonoBehaviour
 
     public void endLevel2()
     {
+
         playerModel.SetActive(true);
         thirdPersonScriptReference.unlockMovementInput();
 
@@ -55,6 +59,7 @@ public class Level2_Manager : MonoBehaviour
         playerRef.transform.rotation = Level3playerTeleportLocation.rotation;
 
         scoreRef.SetActive(false);
+        sliderRef.SetActive(false);
 
     }
 
