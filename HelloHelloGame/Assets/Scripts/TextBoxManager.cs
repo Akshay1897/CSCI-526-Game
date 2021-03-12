@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class TextBoxManager : MonoBehaviour
 {
     public GameObject textBox;
+    public GameObject PlayButton;
 
     public Text theText;
     
@@ -47,6 +48,7 @@ public class TextBoxManager : MonoBehaviour
         if (currentLine > endAtLine)
         {
             textBox.SetActive(false);
+            PlayButton.SetActive(true);
         }
     }
 }

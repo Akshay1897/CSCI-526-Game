@@ -74,19 +74,19 @@ public class ThirdPersonMovement : MonoBehaviour
         float horizontal;
         float vertical;
 
-        if (Input.touchCount > 0)
-        {
+        //if (Input.touchCount > 0)
+        //{
             horizontal = leftjoystick.Horizontal;
             vertical = leftjoystick.Vertical;
 
             lookX = rightjoystick.Horizontal;
             lookY = rightjoystick.Vertical;
-        }
-        else
-        {
-            horizontal = Input.GetAxisRaw("Horizontal");
-            vertical = Input.GetAxisRaw("Vertical");
-        }
+        //}
+        //else
+        //{
+            //horizontal = Input.GetAxisRaw("Horizontal");
+            //vertical = Input.GetAxisRaw("Vertical");
+        //}
 
 
         direction = new Vector3(horizontal, 0f, vertical);

@@ -6,8 +6,10 @@ public class Level2_Manager : MonoBehaviour
 {
     public GameObject playerModel;
     public ThirdPersonMovement thirdPersonScriptReference;
-    public GameObject throwButton;
+    public GameObject BasketBallUI;
     public GameObject fixedJoystick;
+    public GameObject jumpbutton;
+    public GameObject level2UI;
 
     public Transform Level2playerTeleportLocation;
 
@@ -15,9 +17,9 @@ public class Level2_Manager : MonoBehaviour
 
     public GameObject playerRef;
 
-    public GameObject scoreRef;
+    //public GameObject scoreRef;
 
-    public GameObject sliderRef;
+    //public GameObject sliderRef;
 
     void Start()
     {
@@ -31,18 +33,20 @@ public class Level2_Manager : MonoBehaviour
 
     public void startLevel2()
     {
-        sliderRef.SetActive(true);
+        //sliderRef.SetActive(true);
+        level2UI.SetActive(false);
 
         playerModel.SetActive(false);
         thirdPersonScriptReference.lockMovementInput();
 
         fixedJoystick.SetActive(false);
-        throwButton.SetActive(true);
+        jumpbutton.SetActive(false);
+        BasketBallUI.SetActive(true);
 
         playerRef.transform.position = Level2playerTeleportLocation.position;
         playerRef.transform.rotation = Level2playerTeleportLocation.rotation;
 
-        scoreRef.SetActive(true);
+        //scoreRef.SetActive(true);
 
     }
 
@@ -53,18 +57,26 @@ public class Level2_Manager : MonoBehaviour
         thirdPersonScriptReference.unlockMovementInput();
 
         fixedJoystick.SetActive(true);
-        throwButton.SetActive(false);
+        jumpbutton.SetActive(true);
+        BasketBallUI.SetActive(false);
+        level2UI.SetActive(false);
 
         playerRef.transform.position = Level3playerTeleportLocation.position;
         playerRef.transform.rotation = Level3playerTeleportLocation.rotation;
 
-        scoreRef.SetActive(false);
-        sliderRef.SetActive(false);
+        //scoreRef.SetActive(false);
+        //sliderRef.SetActive(false);
 
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        startLevel2();
+        startLevel2UI();
+
+    }
+
+    public void startLevel2UI()
+    {
+        level2UI.SetActive(true);
     }
 }
