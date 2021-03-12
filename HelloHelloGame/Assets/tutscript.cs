@@ -28,17 +28,12 @@ public class tutscript : MonoBehaviour
         Invoke("tutorialStart", 3f);
         
     }
-
+    
     public void tutorialStart()
     {
         tutAnim.SetBool("playtut", true);
         floatJoystick.SetActive(true);
         fixedJoystick.SetActive(true);
-    }
-
-    public void tutorial2()
-    {
-        //tutAnim.SetBool("playJumptut", true);
         jumpbutton.SetActive(true);
     }
 }
