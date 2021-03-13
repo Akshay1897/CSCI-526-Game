@@ -26,7 +26,7 @@ public class Sort_Score : MonoBehaviour
     void Start()
     {
         questionIndex = 0;
-        startQuiz();
+        //startQuiz();
 
         //on trigger enter mei daalna hai startQuiz()//
     }
@@ -43,7 +43,7 @@ public class Sort_Score : MonoBehaviour
     {
         Gryffy++;
         nextQuestion();
-        Debug.Log("Score of Gryfindor is " + Gryffy);
+        //Debug.Log("Score of Gryfindor is " + Gryffy);
     }
 
     public void AddScoreHuffpuff()
@@ -115,24 +115,29 @@ public class Sort_Score : MonoBehaviour
 
         if (max == Gryffy)
         {
-            return "Gryffy";
+            return "Gryffindor";
         }
 
         else if (max == Slythy)
         {
-            return "Slythy";
+            return "Slytherin";
         }
 
         else if (max == Huffpuff)
         {
-            return "Huffpuff";
+            return "HufflePuff";
         }
 
         else if (max == RavClawy)
         {
-            return "RavClawy";
+            return "RavenClaw";
         }
 
         return "";
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        startQuiz();
     }
 }
