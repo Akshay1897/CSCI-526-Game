@@ -1,8 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 using UnityEngine.UI;
+using System.Collections;
 
 public class ThirdPersonMovement : MonoBehaviour
 {
@@ -41,6 +41,13 @@ public class ThirdPersonMovement : MonoBehaviour
     public Slider BallThrowSliderRef;
 
     Vector3 direction;
+
+    // Player Movement Audio Clips
+    public AudioClip SingleFootstep;
+    public AudioClip JumpGroan;
+    public AudioClip JumpLanding;
+    public AudioClip BallThrow;
+    
 
     void Start()
     {
@@ -107,6 +114,15 @@ public class ThirdPersonMovement : MonoBehaviour
             if (jumpButtonPressed)
             {
                 PlayerAnimator.SetBool("isJumping", true);
+
+                AudioSource audio = GetComponent<AudioSource>();
+                if (audio.isPlaying == false)
+                {
+                    audio.volume = Random.Range(0.4f, 0.6f);
+                    audio.pitch = Random.Range(0.8f, 1.1f);
+                    audio.PlayOneShot(JumpLanding);
+                    audio.PlayOneShot(JumpGroan);
+                }
             }
             else
             {
@@ -124,12 +140,28 @@ public class ThirdPersonMovement : MonoBehaviour
         {
             PlayerAnimator.SetBool("isWalking", true);
             PlayerAnimator.SetBool("isRunning", false);
+
+            AudioSource audio = GetComponent<AudioSource>();
+            if (audio.isPlaying == false)
+            {
+                audio.volume = Random.Range(0.4f, 0.6f);
+                audio.pitch = Random.Range(0.6f, 0.8f);
+                audio.PlayOneShot(SingleFootstep);
+            }
         }
 
         else if(magnitude >= 0.7f)
         {
             PlayerAnimator.SetBool("isWalking", true);
             PlayerAnimator.SetBool("isRunning", true);
+
+            AudioSource audio = GetComponent<AudioSource>();
+            if (audio.isPlaying == false)
+            {
+                audio.volume = Random.Range(0.8f, 1f);
+                audio.pitch = Random.Range(0.8f, 1.1f);
+                audio.PlayOneShot(SingleFootstep);
+            }
         }
 
         else if(magnitude == 0f)  // IDLE Mode
@@ -170,7 +202,15 @@ public class ThirdPersonMovement : MonoBehaviour
            
             //holdingBall = false;
             obj.GetComponent<Rigidbody>().useGravity = true;
-            obj.GetComponent<Rigidbody>().AddForce(cam.transform.forward * currentForce); 
+            obj.GetComponent<Rigidbody>().AddForce(cam.transform.forward * currentForce);
+
+            AudioSource audio = GetComponent<AudioSource>();
+            if (audio.isPlaying == false)
+            {
+                audio.volume = Random.Range(0.2f, 0.3f);
+                audio.pitch = Random.Range(0.8f, 1.1f);
+                audio.PlayOneShot(BallThrow);
+            }
         }
     }
 

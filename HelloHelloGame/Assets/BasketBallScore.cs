@@ -8,6 +8,7 @@ public class BasketBallScore : MonoBehaviour
     int Score = 0;
 
     public Text scoreRef;
+    public AudioSource GoalScored;
 
     void Start()
     {
@@ -22,6 +23,10 @@ public class BasketBallScore : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        GoalScored.volume = Random.Range(0.9f, 1f);
+        GoalScored.pitch = Random.Range(0.9f, 1.1f);
+        GoalScored.Play();
+
         Score = Score + 100;
         scoreRef.text = Score.ToString();
     }
