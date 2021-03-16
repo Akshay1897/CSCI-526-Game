@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class BasketBallScore : MonoBehaviour
 {
-    int Score = 0;
+    public int Score = 0;
 
     public Text scoreRef;
     public AudioSource GoalScored;

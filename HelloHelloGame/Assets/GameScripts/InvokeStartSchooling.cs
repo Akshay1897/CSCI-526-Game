@@ -8,7 +8,7 @@ public class InvokeStartSchooling : MonoBehaviour
     public GameObject startSchooling;
     public GameObject waterFront;
     public Material defaultskybox;
-    // Start is called before the first frame update
+
     void Start()
     {
         Invoke("LoadWaterFront", invokeNextSceneAfter);//invoke after 5 seconds
@@ -20,6 +20,6 @@ public class InvokeStartSchooling : MonoBehaviour
         waterFront.SetActive(false);
         startSchooling.SetActive(true);
         Debug.Log("changing skybox");
-        RenderSettings.skybox = defaultskybox;
+        //RenderSettings.skybox = defaultskybox;
     }
 }

@@ -9,10 +9,6 @@ public class BeforeQuiz : MonoBehaviour
     public GameObject startSchooling;
     public GameObject leaveForSchool;
 
-    public Material dayskybox;
-    public Material nightskybox;
-    public Material skyboxforcanvas;
-
     public GameObject QuizManager;
 
     public GameObject DemoSceneRef;

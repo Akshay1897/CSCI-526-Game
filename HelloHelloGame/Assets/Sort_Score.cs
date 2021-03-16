@@ -23,8 +23,11 @@ public class Sort_Score : MonoBehaviour
     private int Slythy;
     private int RavClawy;
 
+    public GameObject preHouseRef;
+
     void Start()
     {
+        preHouseRef.SetActive(false);
         questionIndex = 0;
         //startQuiz();
 
@@ -76,7 +79,9 @@ public class Sort_Score : MonoBehaviour
 
         else
         {
+            preHouseRef.SetActive(true);
             yourHouseName.text = calc_score();
+            Invoke("disableText", 5f);
         }
     }
 
@@ -115,29 +120,35 @@ public class Sort_Score : MonoBehaviour
 
         if (max == Gryffy)
         {
-            return "Gryffindor";
+            return "Wampus";
         }
 
         else if (max == Slythy)
         {
-            return "Slytherin";
+            return "Thunderbird";
         }
 
         else if (max == Huffpuff)
         {
-            return "HufflePuff";
+            return "Pukwedgie";
         }
 
         else if (max == RavClawy)
         {
-            return "RavenClaw";
+            return "Horned Serpent";
         }
-
+        
         return "";
     }
 
     private void OnTriggerEnter(Collider other)
     {
         startQuiz();
+    }
+
+    private void disableText()
+    {
+        preHouseRef.SetActive(false);
+        yourHouseName.text = " ";
     }
 }

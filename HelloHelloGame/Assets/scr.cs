@@ -13,7 +13,14 @@ public class scr : MonoBehaviour
     public Text countdownText;
     int goals = 0;
 
+    public BasketBallScore ScoreRef;
+
     bool startTimer = false;
+
+    public Text finalText;
+
+    public GameObject throwBtnRef;
+    public GameObject sliderRef;
 
     void Start()
     {
@@ -64,10 +71,31 @@ public class scr : MonoBehaviour
                 Panel.SetActive(true);
                 startTimer = false;
 
+                sliderRef.SetActive(false);
+                throwBtnRef.SetActive(false);
+
+                if (ScoreRef.Score >= 1000)
+                {
+                    WinCondition();
+                }
+
+                else if (ScoreRef.Score < 1000)
+                {
+                    LoseCondition();
+                }
+
                 nextButton.onClick.AddListener(closePanel);
             }
         }
-
     }
 
+    private void WinCondition()
+    {
+        finalText.text = "Congratulations!!! You have passed Level 2";
+    }
+
+    private void LoseCondition()
+    {
+        finalText.text = "Better luck next time";
+    }
 }
