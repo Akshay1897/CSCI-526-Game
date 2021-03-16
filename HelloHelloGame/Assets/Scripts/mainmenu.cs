@@ -5,9 +5,17 @@ using UnityEngine.SceneManagement;
 
 public class mainmenu : MonoBehaviour
 {
+    public GameObject mainMenu;
+    public GameObject eagleLetter;
+    public Material mat;
     public void PlayGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        mainMenu.SetActive(false);
+        eagleLetter.SetActive(true);
+        
+        //Material levelMat = new Material("Assets/AllSkyFree/Epic_BlueSunset/Epic_BlueSunset.mat");
+        //Debug.Log(levelMat);
+        RenderSettings.skybox = mat;
     }
 
     public void QuitGame()

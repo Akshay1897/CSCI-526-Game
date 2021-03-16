@@ -6,6 +6,6 @@ public class Inst_level1 : MonoBehaviour
 {
     public void loadlevel1()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        
     }
 }

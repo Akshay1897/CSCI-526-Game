@@ -234,7 +234,7 @@ public class ThirdPersonMovement : MonoBehaviour
         currentForce = 2 * ballThrowingForce + ballThrowingForce * Mathf.Sin(Time.time/2);
         //timeSinceStart += Time.deltaTime;
         BallThrowSliderRef.value = currentForce;
-        Debug.Log(currentForce);
+        //Debug.Log(currentForce);
 
     }
 }

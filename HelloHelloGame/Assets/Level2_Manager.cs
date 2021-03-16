@@ -17,6 +17,10 @@ public class Level2_Manager : MonoBehaviour
 
     public GameObject playerRef;
 
+    public GameObject ScoreCounterRef;
+
+    public GameObject counterRef;
+
     //public GameObject scoreRef;
 
     //public GameObject sliderRef;
@@ -46,6 +50,9 @@ public class Level2_Manager : MonoBehaviour
         playerRef.transform.position = Level2playerTeleportLocation.position;
         playerRef.transform.rotation = Level2playerTeleportLocation.rotation;
 
+        ScoreCounterRef.SetActive(true);
+
+        counterRef.GetComponent<scr>().BeginTimer();
         //scoreRef.SetActive(true);
 
     }
@@ -79,4 +86,5 @@ public class Level2_Manager : MonoBehaviour
     {
         level2UI.SetActive(true);
     }
+
 }
