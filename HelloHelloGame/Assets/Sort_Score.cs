@@ -25,6 +25,8 @@ public class Sort_Score : MonoBehaviour
 
     public GameObject preHouseRef;
 
+    public GameObject CanvaquidditcjRef;
+
     void Start()
     {
         preHouseRef.SetActive(false);
@@ -150,5 +152,11 @@ public class Sort_Score : MonoBehaviour
     {
         preHouseRef.SetActive(false);
         yourHouseName.text = " ";
+        nextcanvasEnable();
+    }
+
+    private void nextcanvasEnable()
+    {
+        CanvaquidditcjRef.SetActive(true);
     }
 }
