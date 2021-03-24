@@ -161,6 +161,14 @@ public class ThirdPersonMovement : MonoBehaviour
                 audio.volume = Random.Range(0.8f, 1f);
                 audio.pitch = Random.Range(0.8f, 1.1f);
                 audio.PlayOneShot(SingleFootstep);
+
+                if (jumpButtonPressed)
+                {
+                    audio.volume = Random.Range(0.4f, 0.6f);
+                    audio.pitch = Random.Range(0.8f, 1.1f);
+                    audio.PlayOneShot(JumpLanding);
+                    audio.PlayOneShot(JumpGroan);
+                }
             }
         }
 
