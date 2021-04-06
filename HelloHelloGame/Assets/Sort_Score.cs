@@ -31,9 +31,6 @@ public class Sort_Score : MonoBehaviour
     {
         preHouseRef.SetActive(false);
         questionIndex = 0;
-        //startQuiz();
-
-        //on trigger enter mei daalna hai startQuiz()//
     }
 
     private void Awake()
@@ -106,7 +103,6 @@ public class Sort_Score : MonoBehaviour
         Slythy = 0;
         RavClawy = 0;
     }
-
 
     private string calc_score()
     {
