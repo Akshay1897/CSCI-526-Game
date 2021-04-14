@@ -187,11 +187,6 @@ public class ThirdPersonMovement : MonoBehaviour
         {
             ThrowBallPower();
         }
-
-        //if (Input.GetKeyDown("space"))
-        //{
-        //    PlayerAnimator.Play("2_H_Atk");
-        //}
     }
 
     public void Jump()
@@ -249,24 +244,5 @@ public class ThirdPersonMovement : MonoBehaviour
         BallThrowSliderRef.value = currentForce;
         //Debug.Log(currentForce);
 
-    }
-
-    public void ActivateSpell(int index)
-    {
-        switch (index)
-        {
-            case 1:
-                PlayerAnimator.Play("2_H_Atk_04");
-                break;
-            case 2:
-                PlayerAnimator.Play("1_H_Atk_Std");
-                break;
-            case 3:
-                PlayerAnimator.Play("2_H_Atk");
-                break;
-            case 4:
-                PlayerAnimator.Play("2_H_Atk");
-                break;
-        }
     }
 }
