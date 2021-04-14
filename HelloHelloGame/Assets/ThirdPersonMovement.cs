@@ -47,7 +47,6 @@ public class ThirdPersonMovement : MonoBehaviour
     public AudioClip JumpGroan;
     public AudioClip JumpLanding;
     public AudioClip BallThrow;
-    
 
     void Start()
     {
@@ -63,7 +62,7 @@ public class ThirdPersonMovement : MonoBehaviour
 
     public float GetAxisCustom(string axisName)
     {
-        if(axisName == "Mouse X")
+        if (axisName == "Mouse X")
         {
             return lookX;
         }
@@ -74,7 +73,6 @@ public class ThirdPersonMovement : MonoBehaviour
         return 0;
     }
 
-
     void Update()
     {
 
@@ -83,16 +81,16 @@ public class ThirdPersonMovement : MonoBehaviour
 
         //if (Input.touchCount > 0)
         //{
-            horizontal = leftjoystick.Horizontal;
-            vertical = leftjoystick.Vertical;
+        horizontal = leftjoystick.Horizontal;
+        vertical = leftjoystick.Vertical;
 
-            lookX = rightjoystick.Horizontal;
-            lookY = rightjoystick.Vertical;
+        lookX = rightjoystick.Horizontal;
+        lookY = rightjoystick.Vertical;
         //}
         //else
         //{
-            //horizontal = Input.GetAxisRaw("Horizontal");
-            //vertical = Input.GetAxisRaw("Vertical");
+        //horizontal = Input.GetAxisRaw("Horizontal");
+        //vertical = Input.GetAxisRaw("Vertical");
         //}
 
 
@@ -108,7 +106,7 @@ public class ThirdPersonMovement : MonoBehaviour
                 transform.rotation = Quaternion.Euler(0f, targetAngle, 0f);
 
                 Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
-                controller.Move (moveDir.normalized * speed * direction.magnitude * Time.deltaTime);
+                controller.Move(moveDir.normalized * speed * direction.magnitude * Time.deltaTime);
             }
 
             if (jumpButtonPressed)
@@ -130,13 +128,13 @@ public class ThirdPersonMovement : MonoBehaviour
             }
         }
 
-        
+
 
     }
 
-    void setAnimation(float magnitude) 
+    void setAnimation(float magnitude)
     {
-        if (magnitude >= 0.1f && magnitude <0.9f)
+        if (magnitude >= 0.1f && magnitude < 0.9f)
         {
             PlayerAnimator.SetBool("isWalking", true);
             PlayerAnimator.SetBool("isRunning", false);
@@ -150,7 +148,7 @@ public class ThirdPersonMovement : MonoBehaviour
             }
         }
 
-        else if(magnitude >= 0.7f)
+        else if (magnitude >= 0.7f)
         {
             PlayerAnimator.SetBool("isWalking", true);
             PlayerAnimator.SetBool("isRunning", true);
@@ -172,7 +170,7 @@ public class ThirdPersonMovement : MonoBehaviour
             }
         }
 
-        else if(magnitude == 0f)  // IDLE Mode
+        else if (magnitude == 0f)  // IDLE Mode
         {
             PlayerAnimator.SetBool("isWalking", false);
             PlayerAnimator.SetBool("isRunning", false);
@@ -207,7 +205,7 @@ public class ThirdPersonMovement : MonoBehaviour
             GameObject obj = Instantiate(ball, transform);
 
             obj.transform.position = cam.transform.position + cam.transform.forward * ballDistance;
-           
+
             //holdingBall = false;
             obj.GetComponent<Rigidbody>().useGravity = true;
             obj.GetComponent<Rigidbody>().AddForce(cam.transform.forward * currentForce);
@@ -239,10 +237,29 @@ public class ThirdPersonMovement : MonoBehaviour
 
     public void ThrowBallPower()
     {
-        currentForce = 2 * ballThrowingForce + ballThrowingForce * Mathf.Sin(Time.time/2);
+        currentForce = 2 * ballThrowingForce + ballThrowingForce * Mathf.Sin(Time.time / 2);
         //timeSinceStart += Time.deltaTime;
         BallThrowSliderRef.value = currentForce;
         //Debug.Log(currentForce);
 
+    }
+
+    public void ActivateSpell(int index)
+    {
+        switch (index)
+        {
+            case 1:
+                PlayerAnimator.Play("2_H_Atk_04");
+                break;
+            case 2:
+                PlayerAnimator.Play("2_H_Area_Atk");
+                break;
+            case 3:
+                PlayerAnimator.Play("1_H_Atk_Std");
+                break;
+            case 4:
+                PlayerAnimator.Play("2_H_Atk_05");
+                break;
+        }
     }
 }
