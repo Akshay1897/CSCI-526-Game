@@ -17,8 +17,6 @@ public class TextBoxManager : MonoBehaviour
     public int currentLine;
     public int endAtLine;
 
-    int index1 = 1;
-
     //public PlayerController player;
 
     // Start is called before the first frame update
@@ -42,17 +40,10 @@ public class TextBoxManager : MonoBehaviour
     {
         theText.text = textLines[currentLine];
 
-
-        Touch touch = Input.GetTouch(0);
-        if (touch.phase == TouchPhase.Ended)
+        if (Input.GetKeyDown(KeyCode.Return))
         {
             currentLine += 1;
         }
-
-        //if (Input.touchCount > 0)
-        //{
-        //    currentLine += 1;
-        //}
 
         if (currentLine > endAtLine)
         {
