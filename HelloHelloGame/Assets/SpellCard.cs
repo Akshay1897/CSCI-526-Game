@@ -4,7 +4,7 @@ using UnityEngine;
 
 /// <summary>
 /// Health = 100
-/// Attack = -20,-15
+/// Attack = -20,-30
 /// Heal = +10
 /// Defence = -
 /// Buff = if this is played then next played card multiplied by 2
