@@ -7,8 +7,6 @@ public class Level4Manager : MonoBehaviour
     public Transform Level4TeleportLocation;
     public GameObject level4UI;
 
-    public GameObject playerModel;
-    //public GameObject jumpBtn;
     public GameObject playerRef;
 
 
@@ -35,6 +33,7 @@ public class Level4Manager : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("in trigger");
         StartLevel4();
     }
 
