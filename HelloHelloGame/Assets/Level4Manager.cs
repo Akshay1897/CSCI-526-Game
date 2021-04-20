@@ -9,21 +9,18 @@ public class Level4Manager : MonoBehaviour
 
     public GameObject playerRef;
 
-
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-        
-    }
-
     public void StartLevel4()
     {
+
+        Debug.Log("in trigger");
+        Debug.Log(playerRef.transform.position);
+
+        Vector3 tempposition = playerRef.transform.position;
+
         playerRef.transform.position = Level4TeleportLocation.position;
-        playerRef.transform.rotation = Level4TeleportLocation.rotation;
+
+        Debug.Log(playerRef.transform.position);
+        //playerRef.transform.rotation = Level4TeleportLocation.rotation;
     }
 
     public void EndLevel2()
@@ -33,7 +30,6 @@ public class Level4Manager : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("in trigger");
         StartLevel4();
     }
 
@@ -41,4 +37,9 @@ public class Level4Manager : MonoBehaviour
     //{
     //    level4UI.SetActive(true);
     //}
+
+    private void FixedUpdate()
+    {
+        Debug.LogError(playerRef.transform.position);
+    }
 }

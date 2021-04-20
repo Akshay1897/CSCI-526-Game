@@ -41,8 +41,11 @@ public class SpellCard : MonoBehaviour
                 break;
         }
         CardManager.Instance.playerCard = this;
-        CardManager.Instance.endTurn();
-        //gameObject.SetActive(false);
+
+        CardTableManager.Instance.PlayerObj = gameObject;
+        CardTableManager.Instance.placePlayerCard();
+
+        //Invoke("CardManager.Instance.endTurn()", 5);
     }
 
     void Attack()

@@ -55,7 +55,7 @@ public class ThirdPersonMovement : MonoBehaviour
         CinemachineCore.GetInputAxis = GetAxisCustom;
         ball.GetComponent<Rigidbody>().useGravity = false;
         controller = GetComponent<CharacterController>();
-        Debug.Log(controller);
+        //Debug.Log(controller);
 
         timeSinceStart = (3 * timePeriodForce) / 4;
     }
