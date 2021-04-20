@@ -5,7 +5,7 @@ using UnityEngine;
 public class Level4Manager : MonoBehaviour
 {
     public Transform Level4TeleportLocation;
-    public GameObject level4UI;
+    //public GameObject level4UI;
 
     public GameObject playerRef;
 
@@ -37,8 +37,8 @@ public class Level4Manager : MonoBehaviour
         StartLevel4();
     }
 
-    public void StartLevel4UI()
-    {
-        level4UI.SetActive(true);
-    }
+    //public void StartLevel4UI()
+    //{
+    //    level4UI.SetActive(true);
+    //}
 }
