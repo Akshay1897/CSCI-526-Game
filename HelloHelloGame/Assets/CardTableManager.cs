@@ -6,20 +6,21 @@ public class CardTableManager : MonoBehaviour
 {
     public static CardTableManager Instance;
 
-    public Transform PlayedPlayer;
-    public Transform PlayedEnenmy;
+    public RectTransform PlayedPlayer;
+    public RectTransform PlayedEnenmy;
 
     public GameObject PlayerObj;
     public GameObject EnemyObj;
  
     public void placePlayerCard()
     {
-        Instantiate(PlayerObj, PlayedPlayer);
+        PlayerObj.GetComponent<RectTransform>().anchoredPosition = PlayedPlayer.anchoredPosition;
     }
 
     public void placeEnemyCard()
     {
-        Instantiate(EnemyObj, PlayedEnenmy);
+        EnemyObj.GetComponent<RectTransform>().anchoredPosition = PlayedEnenmy.anchoredPosition;
+
     }
 
     public void ClearCard()
