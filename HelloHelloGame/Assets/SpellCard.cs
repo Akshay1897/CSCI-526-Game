@@ -17,9 +17,7 @@ public class SpellCard : MonoBehaviour
 
     public int atk_dmg = 20;
     public int heal = 10;
-    //bool isDefence = false;
-    //bool isBuff = false;
-
+    
     public void PlayCard()
     {
         switch(currCardType)
@@ -45,7 +43,7 @@ public class SpellCard : MonoBehaviour
         CardTableManager.Instance.PlayerObj = gameObject;
         CardTableManager.Instance.placePlayerCard();
 
-        //Invoke("CardManager.Instance.endTurn()", 5);
+        CardManager.Instance.playEnemyCard();
     }
 
     void Attack()

@@ -846,7 +846,7 @@ GameObject:
   - component: {fileID: 727286901}
   - component: {fileID: 727286900}
   m_Layer: 5
-  m_Name: Attack (3)
+  m_Name: Heal_Fer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1329,7 +1329,7 @@ GameObject:
   - component: {fileID: 1203916328}
   - component: {fileID: 1203916327}
   m_Layer: 5
-  m_Name: Attack (4)
+  m_Name: Defend_Pro
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1745,7 +1745,7 @@ GameObject:
   - component: {fileID: 1713604735}
   - component: {fileID: 1713604734}
   m_Layer: 5
-  m_Name: Attack (2)
+  m_Name: Defend_ExpPet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1902,7 +1902,7 @@ GameObject:
   - component: {fileID: 1714408297}
   - component: {fileID: 1714408296}
   m_Layer: 5
-  m_Name: Attack
+  m_Name: Attack_Exp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2255,7 +2255,7 @@ GameObject:
   - component: {fileID: 1947675593}
   - component: {fileID: 1947675592}
   m_Layer: 5
-  m_Name: Attack (1)
+  m_Name: Attack_Stu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2415,25 +2415,20 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &1977947449
-RectTransform:
+--- !u!4 &1977947449
+Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1977947448}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -432.56915}
-  m_LocalScale: {x: 1.5177865, y: 1.5177865, z: 1.5177865}
+  m_LocalPosition: {x: 227, y: -5.46946, z: -432.56915}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2043133499177853759}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 70.57707, y: -5.46946}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1977947450
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2537,25 +2532,20 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &2040960438
-RectTransform:
+--- !u!4 &2040960438
+Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2040960437}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -432.56915}
-  m_LocalScale: {x: 1.5177865, y: 1.5177865, z: 1.5177865}
+  m_LocalPosition: {x: -198, y: -5.46946, z: -432.56915}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2043133499177853759}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -198, y: -5.46946}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2040960439
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2868,11 +2858,11 @@ MonoBehaviour:
   playerhealth: 100
   enemyhealth: 100
   EnemyTurn1:
-  - {fileID: 6327572883722913209, guid: 72a35b9cb5d414795b3480a9ad0622ba, type: 3}
-  - {fileID: 6327572883722913209, guid: 72a35b9cb5d414795b3480a9ad0622ba, type: 3}
+  - {fileID: 7385030178105603936, guid: bf3ffd527835642d09c29f5486ddb127, type: 3}
+  - {fileID: 7385030178105603936, guid: bf3ffd527835642d09c29f5486ddb127, type: 3}
   - {fileID: 2406012825195695103, guid: 28466cff3f4c84ed1a195c9f7adb2400, type: 3}
-  - {fileID: 5808770340498978016, guid: 601050da194da4f7cad0b47877812aa4, type: 3}
-  - {fileID: 6327572883722913209, guid: 72a35b9cb5d414795b3480a9ad0622ba, type: 3}
+  - {fileID: 7385030178105603936, guid: bf3ffd527835642d09c29f5486ddb127, type: 3}
+  - {fileID: 7385030178105603936, guid: bf3ffd527835642d09c29f5486ddb127, type: 3}
   EnemyTurn2:
   - {fileID: 2443106252621113737, guid: 0299be8634a454705a90d9033f4007cb, type: 3}
   - {fileID: 6327572883722913209, guid: 72a35b9cb5d414795b3480a9ad0622ba, type: 3}

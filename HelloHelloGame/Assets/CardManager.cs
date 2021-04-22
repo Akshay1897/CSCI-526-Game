@@ -43,7 +43,8 @@ public class CardManager : MonoBehaviour
 
     public void endTurn()
     {
-        playEnemyCard();
+        //playEnemyCard();
+        CardTableManager.Instance.ClearCard();
 
         PlayerHealth.text = playerhealth.ToString();
         EnemyHealth.text = enemyhealth.ToString();
@@ -96,7 +97,7 @@ public class CardManager : MonoBehaviour
     }
 
 
-    void playEnemyCard()
+    public void playEnemyCard()
     {
         switch (turnCounter)
         {
@@ -121,6 +122,10 @@ public class CardManager : MonoBehaviour
                             buffEnemy();
                             break;
                     }
+                    CardTableManager.Instance.EnemyObj = EnemyTurn1[cardCounter].gameObject;
+                    CardTableManager.Instance.placeEnemyCard();
+
+
                     cardCounter = cardCounter + 1;
                 }
 
@@ -134,6 +139,10 @@ public class CardManager : MonoBehaviour
             case 2:
                 break;
         }
+        
+
+        
+        Invoke("endTurn", 3);
 
     }
 
