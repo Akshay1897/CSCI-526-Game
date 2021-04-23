@@ -27,6 +27,9 @@ public class CardManager : MonoBehaviour
 
     public SpellCard playerCard;
 
+    public HealthBar healthBar1;
+    public HealthBar healthBar2;
+
     private void Start()
     {
         PlayerHealth.text = playerhealth.ToString();
@@ -43,11 +46,13 @@ public class CardManager : MonoBehaviour
 
     public void endTurn()
     {
-        //playEnemyCard();
         CardTableManager.Instance.ClearCard();
 
         PlayerHealth.text = playerhealth.ToString();
         EnemyHealth.text = enemyhealth.ToString();
+
+        healthBar1.SetHealth(playerhealth);
+        healthBar2.SetHealth(enemyhealth);
     }
 
     public void giveDamagePlayer(int damage)

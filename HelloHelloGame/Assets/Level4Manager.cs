@@ -33,11 +33,6 @@ public class Level4Manager : MonoBehaviour
         StartLevel4();
     }
 
-    //public void StartLevel4UI()
-    //{
-    //    level4UI.SetActive(true);
-    //}
-
     private void FixedUpdate()
     {
         Debug.LogError(playerRef.transform.position);

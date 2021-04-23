@@ -13,8 +13,6 @@ public class PlayerCardShuffler : MonoBehaviour
     {
         counter = counter + 1;
 
-        //objRef.SetActive(false);
-
         turnChecker();
 
     }
