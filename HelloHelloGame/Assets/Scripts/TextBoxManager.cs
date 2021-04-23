@@ -17,13 +17,9 @@ public class TextBoxManager : MonoBehaviour
     public int currentLine;
     public int endAtLine;
 
-    //public PlayerController player;
-
-    // Start is called before the first frame update
+    
     void Start()
     {
-        //player = FindObjectOfType<PlayerController>();
-
         if (textFile != null)
         {
             textLines = (textFile.text.Split('x'));

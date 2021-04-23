@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class scr : MonoBehaviour
 {
     float currentTime = 0f;
-    float startingTime = 60f;
+    float startingTime = 20f;
 
     public GameObject Panel;
     public Button nextButton;
