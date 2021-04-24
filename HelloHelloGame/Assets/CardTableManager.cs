@@ -12,6 +12,8 @@ public class CardTableManager : MonoBehaviour
     public GameObject PlayerObj;
     public GameObject EnemyObj;
 
+    public AudioSource Soundref;
+
     private void Awake()
     {
         if (Instance == null)
@@ -41,5 +43,7 @@ public class CardTableManager : MonoBehaviour
     {
         PlayerObj.SetActive(false);
         EnemyObj.SetActive(false);
+
+        Soundref.Play();
     }
 }
