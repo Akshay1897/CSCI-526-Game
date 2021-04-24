@@ -11,20 +11,51 @@ public class finalbattlemanager : MonoBehaviour
     public GameObject healthbar1Ref;
     public GameObject healthbar2Ref;
 
-    public Text text1Ref;
-    public Text text2Ref;
+    public GameObject text1Ref;
+    public GameObject text2Ref;
+
+    public GameObject Player1Ref;
+    public GameObject EnemyRef;
+    public GameObject PlayerBeforeDuelRef;
 
     public GameObject level4instructionsRef;
 
+    public GameObject level4dialogueRef;
 
-    public void normalPlayGame()
+    public GameObject beforeCam;
+    public GameObject afterCam;
+
+    private void Start()
     {
-        
+        Player1Ref.SetActive(false);
+        EnemyRef.SetActive(false);
+        text1Ref.SetActive(false);
+        text2Ref.SetActive(false);
+        healthbar1Ref.SetActive(false);
+        healthbar2Ref.SetActive(false);
+        level4instructionsRef.SetActive(false);
+        cardsRef.SetActive(false);
+    }
+
+    public void startDuelGame()
+    {
+        Player1Ref.SetActive(true);
+        EnemyRef.SetActive(true);
+        text1Ref.SetActive(true);
+        text2Ref.SetActive(true);
+        healthbar1Ref.SetActive(true);
+        healthbar2Ref.SetActive(true);
+        cardsRef.SetActive(true);
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        level4instructionsRef.SetActive(true);
+        beforeCam.SetActive(false);
+        PlayerBeforeDuelRef.SetActive(false);
+        afterCam.SetActive(true);
+        Player1Ref.SetActive(true);
+        EnemyRef.SetActive(true);
+        level4dialogueRef.SetActive(true);
         movementRef.SetActive(false);
     }
 

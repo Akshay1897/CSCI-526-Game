@@ -36,6 +36,12 @@ public class TextBoxManager : MonoBehaviour
     {
         theText.text = textLines[currentLine];
 
+        //Touch touch = Input.GetTouch(0);
+        //if(touch.phase == TouchPhase.Ended)
+        //{
+        //    currentLine += 1;
+        //}
+
         if (Input.GetKeyDown(KeyCode.Return))
         {
             currentLine += 1;
