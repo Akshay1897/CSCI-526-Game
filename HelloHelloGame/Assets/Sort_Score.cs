@@ -122,22 +122,22 @@ public class Sort_Score : MonoBehaviour
 
         if (max == Gryffy)
         {
-            return "Wampus";
+            return "Gryffindor";
         }
 
         else if (max == Slythy)
         {
-            return "Thunderbird";
+            return "Slytherin";
         }
 
         else if (max == Huffpuff)
         {
-            return "Pukwedgie";
+            return "Hufflepuff";
         }
 
         else if (max == RavClawy)
         {
-            return "Horned Serpent";
+            return "Ravenclaw";
         }
         
         return "";
