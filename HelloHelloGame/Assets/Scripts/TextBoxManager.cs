@@ -14,7 +14,7 @@ public class TextBoxManager : MonoBehaviour
     [Multiline(15)]
     public string[] textLines;
 
-    public float delay = 0.1f;
+    public float delay = 0.02f;
 
     public int currentLine;
     public int endAtLine;
