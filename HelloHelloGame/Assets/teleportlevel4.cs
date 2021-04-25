@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class teleportlevel4 : MonoBehaviour
 {
@@ -10,6 +12,12 @@ public class teleportlevel4 : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         movementRef.SetActive(false);
-        btnRef.SetActive(true);
+        //btnRef.SetActive(true);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
+
+    //public void LoadDemoScene()
+    //{
+    //    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    //}
 }

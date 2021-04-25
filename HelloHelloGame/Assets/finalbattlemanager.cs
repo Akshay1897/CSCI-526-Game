@@ -28,7 +28,7 @@ public class finalbattlemanager : MonoBehaviour
     private void Start()
     {
         Player1Ref.SetActive(false);
-        EnemyRef.SetActive(false);
+        EnemyRef.SetActive(true);
         text1Ref.SetActive(false);
         text2Ref.SetActive(false);
         healthbar1Ref.SetActive(false);
