@@ -30,6 +30,10 @@ public class CardManager : MonoBehaviour
     public HealthBar healthBar1;
     public HealthBar healthBar2;
 
+    public Animator PlayerAttackAnim;
+
+    public bool ifwin = true;
+
     private void Start()
     {
         PlayerHealth.text = playerhealth.ToString();
@@ -44,15 +48,64 @@ public class CardManager : MonoBehaviour
         }
     }
 
+    public void playEnemyEffect(SpellCard.cardType type1)
+    {
+        switch (EnemyTurn1[cardCounter].currCardType)
+        {
+            case SpellCard.cardType.attack:
+                PlayerAttackAnim.Play("AttackAnimation");
+                break;
+
+            case SpellCard.cardType.defence:
+                
+                break;
+
+            case SpellCard.cardType.heal:
+                
+                break;
+
+            case SpellCard.cardType.buff:
+                
+                break;
+        }
+    }
+
+    public void playPlayerEffect()
+    {
+    }
+
     public void endTurn()
     {
         CardTableManager.Instance.ClearCard();
+
+        if (playerhealth > 100)
+        {
+            playerhealth = 100;
+        }
+
+        if (enemyhealth > 100)
+        {
+            enemyhealth = 100;
+        }
+
+        if (playerhealth < 0)
+        {
+            playerhealth = 0;
+        }
+
+        if (enemyhealth < 0)
+        {
+            enemyhealth = 0;
+        }
 
         PlayerHealth.text = playerhealth.ToString();
         EnemyHealth.text = enemyhealth.ToString();
 
         healthBar1.SetHealth(playerhealth);
         healthBar2.SetHealth(enemyhealth);
+
+        isDefence = false;
+        isPlayerDefence = false;
     }
 
     public void giveDamagePlayer(int damage)
@@ -107,46 +160,80 @@ public class CardManager : MonoBehaviour
         switch (turnCounter)
         {
             case 1:
-                if (cardCounter <= 4)
+
+                switch (EnemyTurn1[cardCounter].currCardType)
                 {
-                    switch (EnemyTurn1[cardCounter].currCardType)
-                    {
-                        case SpellCard.cardType.attack:
-                            giveDamagePlayer(EnemyTurn1[cardCounter].atk_dmg);
-                            break;
+                    case SpellCard.cardType.attack:
+                        giveDamagePlayer(EnemyTurn1[cardCounter].atk_dmg);
+                        PlayerAttackAnim.Play("AttackAnimation");
+                        break;
 
-                        case SpellCard.cardType.defence:
-                            defendEnemy();
-                            break;
+                    case SpellCard.cardType.defence:
+                        defendEnemy();
+                        break;
 
-                        case SpellCard.cardType.heal:
-                            healEnemy();
-                            break;
+                    case SpellCard.cardType.heal:
+                        healEnemy();
+                        break;
 
-                        case SpellCard.cardType.buff:
-                            buffEnemy();
-                            break;
-                    }
-                    CardTableManager.Instance.EnemyObj = EnemyTurn1[cardCounter].gameObject;
-                    CardTableManager.Instance.placeEnemyCard();
-
-
-                    cardCounter = cardCounter + 1;
+                    case SpellCard.cardType.buff:
+                        buffEnemy();
+                        break;
                 }
+                CardTableManager.Instance.EnemyObj = EnemyTurn1[cardCounter].gameObject;
+                CardTableManager.Instance.placeEnemyCard();
 
-                else
-                {
-                    turnCounter = 2;
-                    cardCounter = 0;
-                }
+
+                cardCounter = cardCounter + 1;
+
                 break;
 
             case 2:
+
+                switch (EnemyTurn2[cardCounter].currCardType)
+                {
+                    case SpellCard.cardType.attack:
+                        giveDamagePlayer(EnemyTurn2[cardCounter].atk_dmg);
+                        break;
+
+                    case SpellCard.cardType.defence:
+                        defendEnemy();
+                        break;
+
+                    case SpellCard.cardType.heal:
+                        healEnemy();
+                        break;
+
+                    case SpellCard.cardType.buff:
+                        buffEnemy();
+                        break;
+                }
+                CardTableManager.Instance.EnemyObj = EnemyTurn2[cardCounter].gameObject;
+                CardTableManager.Instance.placeEnemyCard();
+
+
+                cardCounter = cardCounter + 1;
+
                 break;
         }
-        
 
+        if (turnCounter == 1 && cardCounter >= 5)
+        {
+            turnCounter = 2;
+            cardCounter = 0;
+        }
+        else if (turnCounter == 2 && cardCounter >= 5)
+        {
+            if (playerhealth < enemyhealth)
+            {
+                ifwin = false;
+            }
+
+            CardTableManager.Instance.endBattle(ifwin);
+        }
         
+        //Debug.LogError(cardCounter);
+                
         Invoke("endTurn", 3);
 
     }

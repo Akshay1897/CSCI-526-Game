@@ -21,7 +21,7 @@ public class PlayerCardShuffler : MonoBehaviour
     {
         if (counter > 4)
         {
-            nextturn();
+            Invoke("nextturn", 3.5f);
         }
     }
 

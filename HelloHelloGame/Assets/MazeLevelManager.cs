@@ -9,7 +9,7 @@ public class MazeLevelManager : MonoBehaviour
 
     private void Start()
     {
-        Invoke("dispayInstructions", 1);
+        dispayInstructions();
     }
 
     public void dispayInstructions()

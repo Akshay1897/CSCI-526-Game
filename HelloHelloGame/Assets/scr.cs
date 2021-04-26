@@ -22,6 +22,10 @@ public class scr : MonoBehaviour
     public GameObject throwBtnRef;
     public GameObject sliderRef;
 
+    public GameObject scorecountRef;
+    public GameObject timercountRef;
+
+
     void Start()
     {
         Panel.SetActive(false);
@@ -76,11 +80,15 @@ public class scr : MonoBehaviour
 
                 if (ScoreRef.Score >= 1000)
                 {
+                    scorecountRef.SetActive(false);
+                    timercountRef.SetActive(false);
                     WinCondition();
                 }
 
                 else if (ScoreRef.Score < 1000)
                 {
+                    scorecountRef.SetActive(false);
+                    timercountRef.SetActive(false);
                     LoseCondition();
                 }
 

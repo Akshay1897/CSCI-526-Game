@@ -6,7 +6,27 @@ ModelImporter:
   - first:
       74: -203655887218126122
     second: mixamo.com
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Peasant_Man_02
+    second: {fileID: 2100000, guid: f075a6cb3b5686a4cbf7a587a657dd57, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Peasant_Man_diffuse
+    second: {fileID: 2800000, guid: 0f7d3611c770141feaa5635b40e7698d, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Peasant_Man_normal
+    second: {fileID: 2800000, guid: ded66f0e51c6745a0bf1943a742b46d1, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Peasant_Man_specular
+    second: {fileID: 2800000, guid: eb6a6c86aa7064cafb5dd572bfe15144, type: 3}
   materials:
     materialImportMode: 1
     materialName: 0
