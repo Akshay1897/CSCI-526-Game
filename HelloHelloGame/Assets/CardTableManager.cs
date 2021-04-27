@@ -55,6 +55,7 @@ public class CardTableManager : MonoBehaviour
                 break;
 
             case SpellCard.cardType.defence:
+                PlayerAudioRef.PlayOneShot(DefAudio);
                 PlayerAnimatorRef.Play("Player_Final_Def");
                 break;
 

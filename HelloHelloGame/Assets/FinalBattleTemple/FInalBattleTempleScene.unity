@@ -1751,8 +1751,8 @@ MonoBehaviour:
   Text2Ref: {fileID: 660435413}
   PlayerAudioRef: {fileID: 3874990561557290498}
   AtkAudio: {fileID: 8300000, guid: 003aeb06eb08f44ebbca9eb60164f341, type: 3}
-  DefAudio: {fileID: 0}
-  HealAudio: {fileID: 0}
+  DefAudio: {fileID: 8300000, guid: e5a4e0e8766e84e2eb85e76d03787e6d, type: 3}
+  HealAudio: {fileID: 8300000, guid: 242a64f6228764b82b1362dbf6c49b72, type: 3}
   PlayerAnimatorRef: {fileID: 3874990561557290497}
 --- !u!4 &709453280
 Transform:
@@ -6290,7 +6290,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textBox: {fileID: 858183907}
-  PlayButton: {fileID: 0}
+  PlayButton: {fileID: 413151303}
   theText: {fileID: 989866104}
   textFile: {fileID: 4900000, guid: e2216c8d63884426dab0f973d6d84610, type: 3}
   textLines: []
@@ -14225,7 +14225,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3874990561557290496}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: -0, y: 0.5307605, z: -0, w: 0.84752184}
   m_LocalPosition: {x: 196.985, y: 41.52, z: -151.56}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -14239,7 +14239,7 @@ Transform:
   - {fileID: 7072111440529898082}
   m_Father: {fileID: 0}
   m_RootOrder: 15
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 64.114006, z: 0}
 --- !u!222 &4540653677688710216
 CanvasRenderer:
   m_ObjectHideFlags: 0

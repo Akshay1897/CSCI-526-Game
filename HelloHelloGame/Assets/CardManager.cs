@@ -62,7 +62,7 @@ public class CardManager : MonoBehaviour
                 break;
 
             case SpellCard.cardType.defence:
-                
+                PlayerAttackAnim.Play("DefenceAnimation");
                 break;
 
             case SpellCard.cardType.heal:
