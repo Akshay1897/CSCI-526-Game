@@ -8,6 +8,11 @@ public class SpellOrbPickup : MonoBehaviour
     public AudioSource OrbPickup;
     public GameObject spell_Canvas;
 
+    public Shooter shooter;
+    public GameObject projectile;
+    public GameObject muzzle;
+    public string animationType;
+
     private void OnTriggerEnter(Collider other)
     {
         OrbPickup.volume = Random.Range(0.8f, 1f);
@@ -17,6 +22,9 @@ public class SpellOrbPickup : MonoBehaviour
         parentObjRef.SetActive(false);
 
         spell_Canvas.SetActive(true);
+
+        shooter.SetShootingObjects(projectile, muzzle, animationType);
     }
 
 }
+
