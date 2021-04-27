@@ -48,6 +48,7 @@ public class SpellCard : MonoBehaviour
 
     void Attack()
     {
+        
         if (CardManager.Instance.isDefence == false)
         {
             if (CardManager.Instance.isPlayerBuff == true)

@@ -32,6 +32,11 @@ public class CardManager : MonoBehaviour
 
     public Animator PlayerAttackAnim;
 
+    public GameObject Round1Ref;
+    public GameObject Round2Ref;
+
+    public Animator EnemyAnimatorRef;
+
     public bool ifwin = true;
 
     private void Start()
@@ -165,10 +170,12 @@ public class CardManager : MonoBehaviour
                 {
                     case SpellCard.cardType.attack:
                         giveDamagePlayer(EnemyTurn1[cardCounter].atk_dmg);
-                        PlayerAttackAnim.Play("AttackAnimation");
+                        //PlayerAttackAnim.Play("AttackAnimation");
+                        EnemyAnimatorRef.Play("Enemy_Final_Atk");
                         break;
 
                     case SpellCard.cardType.defence:
+                        EnemyAnimatorRef.Play("Enemy_Final_Def");
                         defendEnemy();
                         break;
 
@@ -194,9 +201,11 @@ public class CardManager : MonoBehaviour
                 {
                     case SpellCard.cardType.attack:
                         giveDamagePlayer(EnemyTurn2[cardCounter].atk_dmg);
+                        EnemyAnimatorRef.Play("Enemy_Final_Atk");
                         break;
 
                     case SpellCard.cardType.defence:
+                        EnemyAnimatorRef.Play("Enemy_Final_Def");
                         defendEnemy();
                         break;
 
@@ -221,6 +230,8 @@ public class CardManager : MonoBehaviour
         {
             turnCounter = 2;
             cardCounter = 0;
+
+            Invoke("Round2PanelOn", 6);
         }
         else if (turnCounter == 2 && cardCounter >= 5)
         {
@@ -246,5 +257,29 @@ public class CardManager : MonoBehaviour
     public void healPlayer(int heal)
     {
         playerhealth = playerhealth + heal;
+    }
+
+    public void Round1PanelOn()
+    {
+        Round1Ref.SetActive(true);
+
+        Invoke("Round1PanelOff", 2);
+    }
+
+    public void Round1PanelOff()
+    {
+        Round1Ref.SetActive(false);
+    }
+
+    public void Round2PanelOn()
+    {
+        Round2Ref.SetActive(true);
+
+        Invoke("Round2PanelOff", 2);
+    }
+
+    public void Round2PanelOff()
+    {
+        Round2Ref.SetActive(false);
     }
 }

@@ -21,8 +21,6 @@ public class finalbattlemanager : MonoBehaviour
     public GameObject EnemyRef;
     public GameObject PlayerBeforeDuelRef;
 
-    public GameObject level4instructionsRef;
-
     public GameObject level4dialogueRef;
 
     public GameObject beforeCam;
@@ -38,7 +36,6 @@ public class finalbattlemanager : MonoBehaviour
         text22Ref.SetActive(false);
         healthbar1Ref.SetActive(false);
         healthbar2Ref.SetActive(false);
-        level4instructionsRef.SetActive(false);
         cardsRef.SetActive(false);
     }
 

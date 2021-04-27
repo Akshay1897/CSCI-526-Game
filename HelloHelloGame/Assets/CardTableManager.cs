@@ -20,6 +20,19 @@ public class CardTableManager : MonoBehaviour
     public GameObject ifWinPanelRef;
     public Text PanelTextRef;
 
+    public GameObject healthbar1Ref;
+    public GameObject healthbar2Ref;
+
+    public GameObject Text1Ref;
+    public GameObject Text2Ref;
+
+    public AudioSource PlayerAudioRef;
+
+    public AudioClip AtkAudio;
+    public AudioClip DefAudio;
+    public AudioClip HealAudio;
+
+    public Animator PlayerAnimatorRef;
 
     private void Awake()
     {
@@ -33,6 +46,26 @@ public class CardTableManager : MonoBehaviour
     {
         Debug.LogWarning(PlayerObj);
         PlayerObj.transform.position = PlayedPlayer.transform.position;
+
+        switch (PlayerObj.GetComponent<SpellCard>().currCardType)
+        {
+            case SpellCard.cardType.attack:
+                PlayerAnimatorRef.Play("Player_final_Atk");
+                PlayerAudioRef.PlayOneShot(AtkAudio);
+                break;
+
+            case SpellCard.cardType.defence:
+                PlayerAnimatorRef.Play("Player_Final_Def");
+                break;
+
+            case SpellCard.cardType.heal:
+                
+                break;
+
+            case SpellCard.cardType.buff:
+                
+                break;
+        }
     }
 
     public void placeEnemyCard()
@@ -73,9 +106,15 @@ public class CardTableManager : MonoBehaviour
 
     public void Panelon()
     {
+        healthbar1Ref.SetActive(false);
+        healthbar2Ref.SetActive(false);
+
+        Text1Ref.SetActive(false);
+        Text2Ref.SetActive(false);
+
         ifWinPanelRef.SetActive(true);
 
-        Invoke("Paneloff", 3);
+        Invoke("Paneloff", 5);
     }
 
     public void Paneloff()
