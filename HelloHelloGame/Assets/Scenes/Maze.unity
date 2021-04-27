@@ -5969,7 +5969,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2686913168714521880}
-  m_LocalRotation: {x: 0.05351016, y: 0.00000003463088, z: -0.0000000018557625, w: 0.99856734}
+  m_LocalRotation: {x: 0.05351016, y: -0.000000030900253, z: 0.0000000016558497, w: 0.99856734}
   m_LocalPosition: {x: 27.28, y: 1.8080001, z: 8.285999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -6296,8 +6296,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2686913169263727499}
-  m_LocalRotation: {x: 0.071664736, y: -1e-45, z: -0, w: 0.9974288}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0.09475395, y: -1e-45, z: -0, w: 0.99550074}
+  m_LocalPosition: {x: 0, y: 0.092683315, z: -0.035892487}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2686913170022761506}
@@ -6595,7 +6595,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2686913169636284369}
-  m_LocalRotation: {x: 0.053510156, y: 0.00000001731544, z: -9.278811e-10, w: 0.99856734}
+  m_LocalRotation: {x: 0.053510156, y: -0.000000007439906, z: 3.9868175e-10, w: 0.99856734}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -7173,7 +7173,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2686913170738166419}
-  m_LocalRotation: {x: 0.03538589, y: 0.000000017195601, z: -6.0886307e-10, w: 0.99937373}
+  m_LocalRotation: {x: 0.035385884, y: 4.0282885e-10, z: -1.4263536e-11, w: 0.99937373}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -19805,8 +19805,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -37}
-  m_SizeDelta: {x: 160.99994, y: 100}
+  m_AnchoredPosition: {x: 0, y: -38}
+  m_SizeDelta: {x: 160.99994, y: 44.57608}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &8274336531701353427
 GameObject:
