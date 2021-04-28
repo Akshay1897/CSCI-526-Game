@@ -38,6 +38,8 @@ public class CardTableManager : MonoBehaviour
     public GameObject StandPlayer;
     public GameObject StandEnemy;
 
+    public GameObject healEffectStart;
+
     public Animator PlayerAnimatorRef;
 
     private void Awake()
@@ -57,16 +59,28 @@ public class CardTableManager : MonoBehaviour
         {
             case SpellCard.cardType.attack:
                 PlayerAnimatorRef.Play("PlayerNewSimpleAtk");
+
+                PlayerAudioRef.volume = Random.Range(0.05f, 0.1f);
+                PlayerAudioRef.pitch = Random.Range(0.8f, 1.1f);
+
                 PlayerAudioRef.PlayOneShot(AtkAudio);
                 break;
 
             case SpellCard.cardType.defence:
+                PlayerAudioRef.volume = Random.Range(0.3f, 0.5f);
+                PlayerAudioRef.pitch = Random.Range(0.8f, 1.1f);
+
                 PlayerAudioRef.PlayOneShot(DefAudio);
                 PlayerAnimatorRef.Play("Player_Final_Def");
                 break;
 
             case SpellCard.cardType.heal:
+                PlayerAudioRef.volume = Random.Range(0.05f, 0.1f);
+                PlayerAudioRef.pitch = Random.Range(0.8f, 1.1f);
                 PlayerAudioRef.PlayOneShot(HealAudio);
+
+                healEffectStart.SetActive(true);
+                Invoke("HealAnimOff", 2f);
                 PlayerAnimatorRef.Play("Player_Final_Heal");
                 break;
 
@@ -126,6 +140,7 @@ public class CardTableManager : MonoBehaviour
         StandPlayer.SetActive(true);
         StandEnemy.SetActive(true);
 
+        PlayerAudioRef.Stop();
         ifWinPanelRef.SetActive(true);
 
         Invoke("Paneloff", 5);
@@ -138,5 +153,9 @@ public class CardTableManager : MonoBehaviour
         FinalDialogueRef.SetActive(true);
     }
 
+    public void HealAnimOff()
+    {
+        healEffectStart.SetActive(false);
+    }
     
 }

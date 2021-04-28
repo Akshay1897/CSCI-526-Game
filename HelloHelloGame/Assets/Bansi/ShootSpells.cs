@@ -10,6 +10,7 @@ public class ShootSpells : MonoBehaviour
     public Transform spellTarget;
     public float projectileSpeed = 10;
     public float arcRange = 1;
+    //public ParticleSystem healProjectile;
     //public ThirdPersonMovement TPController;
 
     private Animator animator;
@@ -55,4 +56,7 @@ public class ShootSpells : MonoBehaviour
         var muzzleObj = Instantiate(muzzle, firePoint.position, Quaternion.identity) as GameObject;
         Destroy(muzzleObj, 2);
     }
+
+    
+
 }

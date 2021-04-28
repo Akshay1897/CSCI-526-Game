@@ -32,27 +32,27 @@ public class TextBoxManager : MonoBehaviour
         {
             endAtLine = textLines.Length - 1;
         }
-
+        
         StartCoroutine(ShowText(textLines[currentLine]));
-    }
+    }                       
 
     void Update()
     {
         //theText.text = textLines[currentLine];
 
-        Touch touch = Input.GetTouch(0);
-        if(touch.phase == TouchPhase.Ended)
+        //Touch touch = Input.GetTouch(0);
+        //if(touch.phase == TouchPhase.Ended)
+        //{
+        //    currentLine += 1;
+        //    StartCoroutine(ShowText(textLines[currentLine]));
+
+        //}
+
+        if (Input.GetKeyDown(KeyCode.Return))
         {
             currentLine += 1;
-        StartCoroutine(ShowText(textLines[currentLine]));
-
+            StartCoroutine(ShowText(textLines[currentLine]));
         }
-
-        //if (Input.GetKeyDown(KeyCode.Return))
-        //{
-          //  currentLine += 1;
-            //StartCoroutine(ShowText(textLines[currentLine]));
-        //}
 
         if (currentLine > endAtLine)
         {

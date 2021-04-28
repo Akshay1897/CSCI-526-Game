@@ -35,7 +35,10 @@ public class CardManager : MonoBehaviour
     public GameObject Round1Ref;
     public GameObject Round2Ref;
 
+    public GameObject EnemyHeal;
+
     public Animator EnemyAnimatorRef;
+
 
     public bool ifwin = true;
 
@@ -66,7 +69,7 @@ public class CardManager : MonoBehaviour
                 break;
 
             case SpellCard.cardType.heal:
-                
+               
                 break;
 
             case SpellCard.cardType.buff:
@@ -181,6 +184,8 @@ public class CardManager : MonoBehaviour
 
                     case SpellCard.cardType.heal:
                         EnemyAnimatorRef.Play("Enemy_Final_Heal");
+                        EnemyHeal.SetActive(true);
+                        Invoke("EnemyHealOff", 2f);
                         healEnemy();
                         break;
 
@@ -212,6 +217,8 @@ public class CardManager : MonoBehaviour
 
                     case SpellCard.cardType.heal:
                         EnemyAnimatorRef.Play("Enemy_Final_Heal");
+                        EnemyHeal.SetActive(true);
+                        Invoke("EnemyHealOff", 2f);
                         healEnemy();
                         break;
 
@@ -284,4 +291,10 @@ public class CardManager : MonoBehaviour
     {
         Round2Ref.SetActive(false);
     }
+
+    public void EnemyHealOff()
+    {
+        EnemyHeal.SetActive(false);
+    }
 }
+

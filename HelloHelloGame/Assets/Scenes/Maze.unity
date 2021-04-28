@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -6102,7 +6102,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2686913168714521880}
-  m_LocalRotation: {x: 0.05351016, y: 0.00000003463088, z: -0.0000000018557625, w: 0.99856734}
+  m_LocalRotation: {x: 0.05351016, y: -0.000000034630883, z: 0.0000000018557628, w: 0.99856734}
   m_LocalPosition: {x: 27.28, y: 1.8080001, z: 8.285999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -6729,7 +6729,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2686913169636284369}
-  m_LocalRotation: {x: 0.053510156, y: 0.00000001731544, z: -9.278811e-10, w: 0.99856734}
+  m_LocalRotation: {x: 0.053510156, y: -0.000000017315442, z: 9.2788116e-10, w: 0.99856734}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -11370,6 +11370,7 @@ GameObject:
   - component: {fileID: 3789524609263894091}
   - component: {fileID: 4059556755841157068}
   - component: {fileID: 4059556755841157067}
+  - component: {fileID: 4059556755841157069}
   m_Layer: 0
   m_Name: harrypotter_yeda_with_wand
   m_TagString: Untagged
@@ -11395,6 +11396,8 @@ MonoBehaviour:
   spellTarget: {fileID: 1035239955}
   projectileSpeed: 30
   arcRange: 1
+  PlayerAudioSource: {fileID: 4059556755841157069}
+  CastSpellAudio: {fileID: 8300000, guid: a13393d0392994858b48d7fa1a8b1423, type: 3}
 --- !u!114 &4059556755841157068
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11479,6 +11482,102 @@ MonoBehaviour:
   - {fileID: 9188614793747701071}
   - {fileID: 3565067333540985751}
   - {fileID: 8835972813101857373}
+--- !u!82 &4059556755841157069
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4059556755841157066}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!4 &4062213501521442502
 Transform:
   m_ObjectHideFlags: 0

@@ -22,6 +22,9 @@ public class Shooter : MonoBehaviour
     private GameObject muzzle;
     private string animationType=null;
 
+    public AudioSource PlayerAudioSource;
+    public AudioClip CastSpellAudio;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -53,6 +56,7 @@ public class Shooter : MonoBehaviour
             crosshair.transform.position = cam.WorldToScreenPoint(destination);
         }
     }
+
     public void SpawnVFX()
     {
         if (animationType != null)
@@ -64,7 +68,16 @@ public class Shooter : MonoBehaviour
             //var oldRotation = transform.rotation;
             //transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, 1);
             //this.transform.LookAt(spellTarget);
+
             animator.Play(animationType);
+
+            if (PlayerAudioSource.isPlaying == false)
+            {
+                PlayerAudioSource.volume = Random.Range(0.4f, 0.6f);
+                PlayerAudioSource.pitch = Random.Range(0.8f, 1.1f);
+                PlayerAudioSource.PlayOneShot(CastSpellAudio);
+            }
+
             //transform.rotation = oldRotation;
             //InstantiateProjectile();
         }
