@@ -26,10 +26,15 @@ public class finalbattlemanager : MonoBehaviour
     public GameObject beforeCam;
     public GameObject afterCam;
 
+    public GameObject StandPlayer;
+    public GameObject StandEnemy;
+
     private void Start()
     {
-        Player1Ref.SetActive(false);
-        EnemyRef.SetActive(true);
+        //Player1Ref.SetActive(false);
+        //EnemyRef.SetActive(true);
+        //StandPlayer.SetActive(true);
+        StandEnemy.SetActive(true);
         text1Ref.SetActive(false);
         text2Ref.SetActive(false);
         text11Ref.SetActive(false);
@@ -41,6 +46,8 @@ public class finalbattlemanager : MonoBehaviour
 
     public void startDuelGame()
     {
+        StandPlayer.SetActive(false);
+        StandEnemy.SetActive(false);
         Player1Ref.SetActive(true);
         EnemyRef.SetActive(true);
         text1Ref.SetActive(false);
@@ -57,8 +64,9 @@ public class finalbattlemanager : MonoBehaviour
         beforeCam.SetActive(false);
         PlayerBeforeDuelRef.SetActive(false);
         afterCam.SetActive(true);
-        Player1Ref.SetActive(true);
-        EnemyRef.SetActive(true);
+        StandPlayer.SetActive(true);
+        //Player1Ref.SetActive(true);
+        //EnemyRef.SetActive(true);
         level4dialogueRef.SetActive(true);
         movementRef.SetActive(false);
     }

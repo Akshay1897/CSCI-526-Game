@@ -40,19 +40,19 @@ public class TextBoxManager : MonoBehaviour
     {
         //theText.text = textLines[currentLine];
 
-        //Touch touch = Input.GetTouch(0);
-        //if(touch.phase == TouchPhase.Ended)
-        //{
-        //    currentLine += 1;
-        //StartCoroutine(ShowText(textLines[currentLine]));
-
-        //}
-
-        if (Input.GetKeyDown(KeyCode.Return))
+        Touch touch = Input.GetTouch(0);
+        if(touch.phase == TouchPhase.Ended)
         {
             currentLine += 1;
-            StartCoroutine(ShowText(textLines[currentLine]));
+        StartCoroutine(ShowText(textLines[currentLine]));
+
         }
+
+        //if (Input.GetKeyDown(KeyCode.Return))
+        //{
+          //  currentLine += 1;
+            //StartCoroutine(ShowText(textLines[currentLine]));
+        //}
 
         if (currentLine > endAtLine)
         {

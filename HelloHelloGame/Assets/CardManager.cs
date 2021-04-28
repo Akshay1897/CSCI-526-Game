@@ -171,7 +171,7 @@ public class CardManager : MonoBehaviour
                     case SpellCard.cardType.attack:
                         giveDamagePlayer(EnemyTurn1[cardCounter].atk_dmg);
                         //PlayerAttackAnim.Play("AttackAnimation");
-                        EnemyAnimatorRef.Play("Enemy_Final_Atk");
+                        EnemyAnimatorRef.Play("NewSimpleAtk");
                         break;
 
                     case SpellCard.cardType.defence:
@@ -180,6 +180,7 @@ public class CardManager : MonoBehaviour
                         break;
 
                     case SpellCard.cardType.heal:
+                        EnemyAnimatorRef.Play("Enemy_Final_Heal");
                         healEnemy();
                         break;
 
@@ -201,7 +202,7 @@ public class CardManager : MonoBehaviour
                 {
                     case SpellCard.cardType.attack:
                         giveDamagePlayer(EnemyTurn2[cardCounter].atk_dmg);
-                        EnemyAnimatorRef.Play("Enemy_Final_Atk");
+                        EnemyAnimatorRef.Play("NewSimpleAtk");
                         break;
 
                     case SpellCard.cardType.defence:
@@ -210,6 +211,7 @@ public class CardManager : MonoBehaviour
                         break;
 
                     case SpellCard.cardType.heal:
+                        EnemyAnimatorRef.Play("Enemy_Final_Heal");
                         healEnemy();
                         break;
 
@@ -231,7 +233,7 @@ public class CardManager : MonoBehaviour
             turnCounter = 2;
             cardCounter = 0;
 
-            Invoke("Round2PanelOn", 6);
+            Invoke("Round2PanelOn", 3f);
         }
         else if (turnCounter == 2 && cardCounter >= 5)
         {
@@ -262,7 +264,7 @@ public class CardManager : MonoBehaviour
     public void Round1PanelOn()
     {
         Round1Ref.SetActive(true);
-
+        
         Invoke("Round1PanelOff", 2);
     }
 

@@ -32,6 +32,12 @@ public class CardTableManager : MonoBehaviour
     public AudioClip DefAudio;
     public AudioClip HealAudio;
 
+    public GameObject GamePlayer;
+    public GameObject GameEnemey;
+
+    public GameObject StandPlayer;
+    public GameObject StandEnemy;
+
     public Animator PlayerAnimatorRef;
 
     private void Awake()
@@ -50,7 +56,7 @@ public class CardTableManager : MonoBehaviour
         switch (PlayerObj.GetComponent<SpellCard>().currCardType)
         {
             case SpellCard.cardType.attack:
-                PlayerAnimatorRef.Play("Player_final_Atk");
+                PlayerAnimatorRef.Play("PlayerNewSimpleAtk");
                 PlayerAudioRef.PlayOneShot(AtkAudio);
                 break;
 
@@ -60,7 +66,8 @@ public class CardTableManager : MonoBehaviour
                 break;
 
             case SpellCard.cardType.heal:
-                
+                PlayerAudioRef.PlayOneShot(HealAudio);
+                PlayerAnimatorRef.Play("Player_Final_Heal");
                 break;
 
             case SpellCard.cardType.buff:
@@ -112,6 +119,12 @@ public class CardTableManager : MonoBehaviour
 
         Text1Ref.SetActive(false);
         Text2Ref.SetActive(false);
+
+        GamePlayer.SetActive(false);
+        GameEnemey.SetActive(false);
+
+        StandPlayer.SetActive(true);
+        StandEnemy.SetActive(true);
 
         ifWinPanelRef.SetActive(true);
 

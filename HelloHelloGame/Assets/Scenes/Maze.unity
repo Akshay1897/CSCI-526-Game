@@ -6102,7 +6102,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2686913168714521880}
-  m_LocalRotation: {x: 0.05351016, y: 0.000000041346958, z: -0.0000000022156565, w: 0.99856734}
+  m_LocalRotation: {x: 0.05351016, y: 0.00000003463088, z: -0.0000000018557625, w: 0.99856734}
   m_LocalPosition: {x: 27.28, y: 1.8080001, z: 8.285999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -6430,8 +6430,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2686913169263727499}
-  m_LocalRotation: {x: 0.1359779, y: -0.0000000073813795, z: 0.0000000010131144, w: 0.99071187}
-  m_LocalPosition: {x: 0, y: 0.24682283, z: -0.0115327835}
+  m_LocalRotation: {x: 0.071664736, y: -0, z: -0, w: 0.9974288}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2686913170022761506}
@@ -6729,7 +6729,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2686913169636284369}
-  m_LocalRotation: {x: 0.05351015, y: 0.000000028462205, z: -0.000000001525202, w: 0.99856734}
+  m_LocalRotation: {x: 0.053510156, y: 0.00000001731544, z: -9.278811e-10, w: 0.99856734}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -7307,7 +7307,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2686913170738166419}
-  m_LocalRotation: {x: 0.035385877, y: 0.000000013313418, z: -4.714021e-10, w: 0.99937373}
+  m_LocalRotation: {x: 0.03538589, y: 0.000000017195608, z: -6.0886335e-10, w: 0.99937373}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -20785,7 +20785,7 @@ MonoBehaviour:
   projectile: {fileID: 6236412067136011284, guid: 4f12459f9db9b0c4ea3cc570defe5c81,
     type: 3}
   muzzle: {fileID: 7503136198910162399, guid: d8d1d32001dce2845b42fd3c7d13a5e3, type: 3}
-  animationType: New_Attack_1
+  animationType: New_Attack_2
 --- !u!4 &8808031645600844530
 Transform:
   m_ObjectHideFlags: 0
@@ -20868,7 +20868,7 @@ MonoBehaviour:
   projectile: {fileID: 6803062662752797570, guid: 842f39871a76f6a42a1f7326f30b6d9e,
     type: 3}
   muzzle: {fileID: 5073379472925198767, guid: 24db5fa388eb96143b25f28e63c8c574, type: 3}
-  animationType: New_Attack_2
+  animationType: New_Atk_1
 --- !u!4 &8808031645952115127
 Transform:
   m_ObjectHideFlags: 0
@@ -20971,7 +20971,7 @@ MonoBehaviour:
   projectile: {fileID: 8898529397976934099, guid: 95598a1e956513a4188776d3e73ff217,
     type: 3}
   muzzle: {fileID: 8938338868769000438, guid: 6e5480d07b006eb43a96afd1e9b5921b, type: 3}
-  animationType: New_Attack_2
+  animationType: New_Atk_1
 --- !u!4 &8808031646135592725
 Transform:
   m_ObjectHideFlags: 0
