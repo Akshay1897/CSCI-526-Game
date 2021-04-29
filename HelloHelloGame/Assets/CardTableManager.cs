@@ -40,6 +40,8 @@ public class CardTableManager : MonoBehaviour
 
     public GameObject healEffectStart;
 
+    public GameObject defencePlayer;
+
     public Animator PlayerAnimatorRef;
 
     private void Awake()
@@ -69,8 +71,10 @@ public class CardTableManager : MonoBehaviour
             case SpellCard.cardType.defence:
                 PlayerAudioRef.volume = Random.Range(0.3f, 0.5f);
                 PlayerAudioRef.pitch = Random.Range(0.8f, 1.1f);
-
                 PlayerAudioRef.PlayOneShot(DefAudio);
+
+                defencePlayer.SetActive(true);
+                Invoke("DefencePlayerOff", 3f);
                 PlayerAnimatorRef.Play("Player_Final_Def");
                 break;
 
@@ -157,5 +161,9 @@ public class CardTableManager : MonoBehaviour
     {
         healEffectStart.SetActive(false);
     }
-    
+
+    public void DefencePlayerOff()
+    {
+        defencePlayer.SetActive(false);
+    }
 }

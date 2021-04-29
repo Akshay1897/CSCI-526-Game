@@ -36,6 +36,7 @@ public class CardManager : MonoBehaviour
     public GameObject Round2Ref;
 
     public GameObject EnemyHeal;
+    public GameObject EnemyDef;
 
     public Animator EnemyAnimatorRef;
 
@@ -76,10 +77,6 @@ public class CardManager : MonoBehaviour
                 
                 break;
         }
-    }
-
-    public void playPlayerEffect()
-    {
     }
 
     public void endTurn()
@@ -153,6 +150,7 @@ public class CardManager : MonoBehaviour
         {
             enemyhealth = enemyhealth + 20;
         }
+
         enemyhealth =enemyhealth + 10;
         isBuff = false;
     }
@@ -179,6 +177,8 @@ public class CardManager : MonoBehaviour
 
                     case SpellCard.cardType.defence:
                         EnemyAnimatorRef.Play("Enemy_Final_Def");
+                        EnemyDef.SetActive(true);
+                        Invoke("EnemyDefenceOff", 3);
                         defendEnemy();
                         break;
 
@@ -212,6 +212,8 @@ public class CardManager : MonoBehaviour
 
                     case SpellCard.cardType.defence:
                         EnemyAnimatorRef.Play("Enemy_Final_Def");
+                        EnemyDef.SetActive(true);
+                        Invoke("EnemyDefenceOff", 3);
                         defendEnemy();
                         break;
 
@@ -242,6 +244,7 @@ public class CardManager : MonoBehaviour
 
             Invoke("Round2PanelOn", 3f);
         }
+
         else if (turnCounter == 2 && cardCounter >= 5)
         {
             if (playerhealth < enemyhealth)
@@ -296,5 +299,9 @@ public class CardManager : MonoBehaviour
     {
         EnemyHeal.SetActive(false);
     }
-}
 
+    public void EnemyDefenceOff()
+    {
+        EnemyDef.SetActive(false);
+    }
+}

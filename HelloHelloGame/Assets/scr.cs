@@ -78,14 +78,14 @@ public class scr : MonoBehaviour
                 sliderRef.SetActive(false);
                 throwBtnRef.SetActive(false);
 
-                if (ScoreRef.Score >= 1000)
+                if (ScoreRef.Score >= 500)
                 {
                     scorecountRef.SetActive(false);
                     timercountRef.SetActive(false);
                     WinCondition();
                 }
 
-                else if (ScoreRef.Score < 1000)
+                else if (ScoreRef.Score < 500)
                 {
                     scorecountRef.SetActive(false);
                     timercountRef.SetActive(false);
